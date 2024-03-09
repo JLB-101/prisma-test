@@ -24,6 +24,6 @@ export class BookService {
         });
 
 
-        
+        return book;
     }
 }
