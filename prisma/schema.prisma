@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// configuracoes de conexão com BD
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// aqui sera configurada a conexão com o banco de dados (provide-e tipo de BD)
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id  String @id @default(uuid())
+  title String
+  description String
+  bar_code  String @unique
+
+  @@map("books")
+}
